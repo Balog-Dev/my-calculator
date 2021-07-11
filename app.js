@@ -64,3 +64,10 @@ function mathOperation(){
         result = parseFloat(result) % parseFloat(dis2Num);
     }
 }
+equalE1.addEventListener('click', (e)=> {
+    if( !dis1Num || !dis2Num ) return;
+    haveDot = false;
+    mathOperation();
+    clearvar();
+    display2E1.innerText = result;
+})
