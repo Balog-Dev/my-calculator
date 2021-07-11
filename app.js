@@ -100,11 +100,35 @@ window.addEventListener('keydown', (e)=> {
         e.key === '6' ||
         e.key === '7' ||
         e.key === '8' ||
-        e.key === '9' ||
+        e.key === '9' 
     ){
         clickButtonE1(e.key);
+    }else if(
+        e.key === '*' ||
+        e.key === '+' ||
+        e.key === '-' ||
+        e.key === '%' 
+    ){
+        clickOperation(e.key);
     }
 });
+
+function clickButtonE1(key){
+    numbersE1.forEach( button => {
+        if(button.innerText === key){
+            button.click();
+          }
+    }
+  )
+}
+function clickOperation(key){
+    operationE1.forEach(button => {
+        if(button.innerText === key){
+            button.click();
+        }
+    }
+  )
+}
 
 
 
