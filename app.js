@@ -4,7 +4,7 @@ const tempResultE1 = document.querySelector('.temp-result')
 const numbersE1 = document.querySelectorAll('.number')
 const operationE1 = document.querySelector('.operation')
 const equalE1 = document.querySelector('.equal')
-const clearE1 = document.querySelector('.all-clear')
+const clearAllE1 = document.querySelector('.all-clear')
 const clearLastE1 = document.querySelector('.last-entity-clear')
 
 let dis1Num = '';
@@ -70,4 +70,20 @@ equalE1.addEventListener('click', (e)=> {
     mathOperation();
     clearvar();
     display2E1.innerText = result;
-})
+    tempResultE1.innerText = '';
+    dis2Num = result;
+    dis1Num = '';
+});
+
+clearAllE1.addEventListener('click', (e)=> {
+    display1E1.innerText = '0';
+    display2E1.innerText = '0';
+    dis1Num = '';
+    dis2Num = '';
+    result = '';
+    tempResultE1.innerText = '0';
+};
+
+
+)
+
