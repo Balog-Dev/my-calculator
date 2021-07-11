@@ -1,7 +1,7 @@
-const displayE1 = document.querySelector('.display-1')
-const displayE2 = document.querySelector('.display-2')
+const display1E1 = document.querySelector('.display-1')
+const display2E1 = document.querySelector('.display-2')
 const tempResultE1 = document.querySelector('.temp-result')
-const numberE1 = document.querySelectorAll('.number')
+const numbersE1 = document.querySelectorAll('.number')
 const operationE1 = document.querySelector('.operation')
 const equalE1 = document.querySelector('.equal')
 const clearE1 = document.querySelector('.all-clear')
@@ -9,19 +9,19 @@ const clearLastE1 = document.querySelector('.last-entity-clear')
 
 let dis1Num = '';
 let dis2Num = '';
-let result = 'null';
+let result = null;
 let lastOperation = '';
-let haveDot = 'false';
+let haveDot = false;
 
-numberE1.forEach(number => {
+numbersE1.forEach(number => {
     number.addListener('click', (e) =>{
         if( e.target.innerText === '.' && !haveDot){
             haveDot = true;
-        }else if( e.target.innerText === '.'&& !haveDot){
+        }else if( e.target.innerText === '.'&& haveDot){
             return;
         }
         dis2Num += e.target.innerText;
-        displayE1.innerText = dis2Num;
+        display2E1.innerText = dis2Num;
     })
 });
 
@@ -33,7 +33,9 @@ operationE1.forEach( operation => {
         if(dis1Num && dis2Num && lastOperation){
             mathOperation();
         }else{
-            result = parseFloat{dis2Num};
+            result = parseFloat(dis2Num);
+            clearvar(operationName);
+            lastOperation = operationName;
             console.log(result);
         }
     }
@@ -41,4 +43,24 @@ operationE1.forEach( operation => {
     )
 }
      
-)
+);
+function clearvar(name = ''){
+    dis1Num =+ dis2Num+ '' + name + '';
+    display1E1.innerText = dis1Num;
+    display2E1.innerText = '';
+    dis2Num = '';
+    tempResultE1.innerText = result;
+}
+function mathOperation(){
+    if(lastOperation === '*'){
+        result = parseFloat(result) * parseFloat(dis2Num);
+    }else if( lastOperation === '+'){
+        result = parseFloat(result) + parseFloat(dis2Num);
+    }else if( lastOperation === '-'){
+        result = parseFloat(result) - parseFloat(dis2Num);
+    }else if( lastOperation === '/'){
+        result = parseFloat(result) / parseFloat(dis2Num);
+    }else if( lastOperation === '%'){
+        result = parseFloat(result) % parseFloat(dis2Num);
+    }
+}
